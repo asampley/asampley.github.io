@@ -3,10 +3,13 @@ factorio.RatioSolver = function(environment) {
 	this.raw = {};
 	this.solution = {}
 	this.solution.raw = {};
+	this.solution.tree = {};
 	this.machineLevels = {};
+	this.beltLevel = 0;
 	this._rawListeners = [];
 	this._unrawListeners = [];
 	this._machineLevelListeners = [];
+	this._beltLevelListeners = [];
 
 	var self = this;
 	this.environment.addItemListener(function(item) {
@@ -32,8 +35,21 @@ factorio.RatioSolver.prototype.getMachineLevel = function(machineClassName) {
 	return this.machineLevels[machineClassName];
 }
 
+factorio.RatioSolver.prototype.setBeltLevel = function(level) {
+	this.beltLevel = level;
+
+	for (var i = 0; i < this._beltLevelListeners.length; ++i) {
+		this._beltLevelListeners[i](level);
+	}
+}
+
+factorio.RatioSolver.prototype.getBeltLevel = function() {
+	return this.beltLevel;
+}
+
 factorio.RatioSolver.prototype.solve = function(item) {
-	return this.solveRecurse(item, this.perSecForWhole(item));
+	this.solution.tree = this.solveRecurse(item, this.perSecForWhole(item));
+	return this.solution.tree;
 }
 
 factorio.RatioSolver.prototype.isRaw = function(item) {
@@ -79,8 +95,14 @@ factorio.RatioSolver.prototype.solveRecurse = function(item, itemPerSec) {
 			machine: null,
 			machineCount: null,
 			itemPerSec: itemPerSec,
-			item: item
+			item: item,
+			belt: null,
+			beltCount: 0
 		});
+		if (this.environment.belts.length != 0) {
+			tree.belt = this.environment.belts[this.beltLevel];
+			tree.beltCount = this.environment.belts[this.beltLevel].numRequired(itemPerSec);
+		}
 	} else {
 		var mc = recipe.machineClass;
 		var machine = new factorio.Machine(mc, this.machineLevels[mc.className], recipe);
@@ -89,9 +111,15 @@ factorio.RatioSolver.prototype.solveRecurse = function(item, itemPerSec) {
 		var tree = new Tree({
 			machine: machine, 
 			machineCount: machineCount,
-			itemPerSec: machineCount.multiply(machine.outputCountPerSec()),
-			item: item
+			itemPerSec: itemPerSec,
+			item: item,
+			belt: null,
+			beltCount: 0
 		});
+		if (this.environment.belts.length != 0) {
+			tree.belt = this.environment.belts[this.beltLevel];
+			tree.beltCount = this.environment.belts[this.beltLevel].numRequired(itemPerSec);
+		}
 		
 		/*if (machineCounts.contains(machine)) {
 			machineCounts.put(machine, machineCounts.get(machine).add(machineCount));
@@ -171,4 +199,10 @@ factorio.RatioSolver.prototype.addMachineLevelListener = function(f) {
 	for (mcName in this.machineLevels) {
 		f(this.environment.machineClasses[mcName], this.machineLevels[mcName]);
 	}
+}
+
+factorio.RatioSolver.prototype.addBeltLevelListener = function(f) {
+	this._beltLevelListeners.push(f);
+
+	f(this.beltLevel);
 }
