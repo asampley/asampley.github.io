@@ -32,6 +32,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/defaults.css">
         <link rel="stylesheet" type="text/css" href="css/colors.css">
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <link rel="stylesheet" type="text/css" href="css/button.css">
@@ -53,21 +54,23 @@
         </div>
 
         <div class="border">
-            <button id="button-back" class="button-back">
-                <img class="icon" src="img/back.svg"/>
-            </button>
+            <div class="border-top-bar">
+                <button id="button-back" class="button-back">
+                    <img class="icon" src="img/back.svg"/>
+                </button>
 
-            <li id="tabs" class="tabs">
-                <button id="tab-ratio" class="button tab">
-                    <img class="icon" src="img/main_menu/button-ratio.png"/>
-                </button>
-                <button id="tab-raw_materials" class="button tab">
-                    <img class="icon" src="img/main_menu/button-raw_materials.png"/>
-                </button>
-                <button id="tab-machine_levels" class="button tab">
-                    <img class="icon" src="img/main_menu/button-machine_levels.png"/>
-                </button>
-            </li>
+                <li id="tabs" class="tabs">
+                    <button id="tab-ratio" class="button tab">
+                        <img class="icon" src="img/main_menu/button-ratio.png"/>
+                    </button>
+                    <button id="tab-raw_materials" class="button tab">
+                        <img class="icon" src="img/main_menu/button-raw_materials.png"/>
+                    </button>
+                    <button id="tab-machine_levels" class="button tab">
+                        <img class="icon" src="img/main_menu/button-machine_levels.png"/>
+                    </button>
+                </li>
+            </div>
 
             <div class="content">
                 <div id="main_menu" class="hidden">
@@ -112,7 +115,6 @@
                             <span class="tree-node-text-2 tree-node-belt-frac"></span>
                             <img class="icon tree-node-belt-icon"></img>
                             <span>]</span>
-                            <span class="flex-spacer"/>
                             <button class="hidden tree-node-raw-toggle">
                                 <img class="icon" src="img/main_menu/button-raw_materials.png"/>
                             </button>

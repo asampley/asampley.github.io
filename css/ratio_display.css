@@ -3,11 +3,25 @@
 	align-items: center;
 }
 
+.tree-node-button > * {
+	margin: 2px;
+}
+
+.tree-node-button:first-child {
+	margin-left: 0px;
+}
+
+.tree-node-button:last-child {
+	margin-left: 0px;
+}
+
 .flex-spacer {
 	flex-grow: 1;
 }
 
 .tree-node-raw-toggle {
-	float: right;
-	width: auto;
+	box-sizing: content-box;
+	width: 1em;
+	height: 1em;
+	margin: 0px 0px 0px auto;
 }

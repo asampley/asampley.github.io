@@ -5,42 +5,30 @@
 	color: #0000000;
 	width: 100%;
 	height: 100%;
-	padding: 72px 4px 4px 4px; /* leave room for 64px buttons at top with 4px padding around */
+	padding: 4px 4px 4px 4px; /* leave room for 64px buttons at top with 4px padding around */
 }
 
-.border .button-back {
-	position: absolute;
-	top: 4px;
-	left: 4px;
+.border-top-bar {
+	box-sizing: border-box;
+	display: inline-flex;
+	width: 100%;
+	margin-bottom: 4px;
 }
 
 .border .tabs {
-	position: absolute;
-	top: 4px;
-	left: 72px;
-	width: calc(100% - 76px);
-	height: 64px;
-	font-size: 48px;
+	display: inline-flex;
 }
 
 .border .tab {
 	background-color: inherit;
-}
-
-.button-settings {
-	background-color: rgba(0,0,0,0);
-    background:url(../img/settings.png) no-repeat center top; /* 64px x 64px */
-    width: 64px;
-    height: 64px;
-    margin: 0px;
-    padding: 0px;
+	flex-grow: 1;
 }
 
 .button-back {
+	box-sizing: content-box;
 	background-color: rgba(0,0,0,0);
-	width: 64px;
-	height: 64px;
-	font-size: 56px;
+	width: 1em;
+	height: 1em;
 	margin: 0px;
 	padding: 4px;
 }
@@ -53,7 +41,6 @@
 	box-sizing: border-box;
 	width: calc(100% - 4px);
 	height: 100%;
-	font-size: 100%;
 	border: 2px solid black;
 	border-top-width: 0;
 	border-bottom-width: 0;
@@ -70,7 +57,7 @@
 	/* flexbox setup */
 	display: grid;
 	grid-auto-flow: column;
-	grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(1em, 1fr));
 
 	padding: 0;
 	margin: 0;
