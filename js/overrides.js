@@ -1,1 +1,0 @@
-fileutil.appWWW.valueOf = function() {return cordova.file.applicationDirectory};
