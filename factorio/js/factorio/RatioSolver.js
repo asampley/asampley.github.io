@@ -108,10 +108,10 @@ factorio.RatioSolver.prototype.solveRecurse = function(item, itemPerSec) {
 			tree.beltCount = this.environment.belts[this.beltLevel].numRequired(itemPerSec);
 		}
 	} else {
-		var mc = recipe.machineClass;
+		var mc = this.environment.machineClasses[recipe.category];
 		var machine = new factorio.Machine(mc, this.machineLevels[mc.className], recipe);
 		//var machine = new factorio.Machine(mc, 0, recipe);
-		var machineCount = itemPerSec.divide(machine.outputCountPerSec());
+		var machineCount = itemPerSec.div(machine.outputCountPerSec());
 		var tree = new Tree({
 			machine: machine, 
 			machineCount: machineCount,
@@ -132,7 +132,7 @@ factorio.RatioSolver.prototype.solveRecurse = function(item, itemPerSec) {
 		}*/
 		
 		for (var item in recipe.inputs) {
-			var child = this.solveRecurse(item, itemPerSec.multiply(recipe.inputs[item]).divide(recipe.outputCount()));
+			var child = this.solveRecurse(item, itemPerSec.mul(recipe.inputs[item]).div(recipe.outputCount()));
 			if (child != null) {
 				tree.addChild(child);
 			}
@@ -149,7 +149,7 @@ factorio.RatioSolver.prototype.perSecForWhole = function(item) {
 	var recipe = this.getRecipe(item);
 	if (recipe == null) return new Fraction(multiple);
 
-	var mc = recipe.machineClass;
+	var mc = this.environment.machineClasses[recipe.category];
 	var machine = new factorio.Machine(mc, this.machineLevels[mc.className], recipe);
 	//var machine = new factorio.Machine(mc, 0, recipe);
 	var topItemPerSec = machine.outputCountPerSec();
@@ -166,22 +166,22 @@ factorio.RatioSolver.prototype.perSecForWhole = function(item) {
 		recipe = machine.recipe;
 		itemPerSec = pair[1];
 
-		machines = itemPerSec.multiply(multiple).divide(machine.outputCountPerSec());
-		multiple *= machines.den;
+		machines = itemPerSec.mul(multiple).div(machine.outputCountPerSec());
+		multiple *= machines.d;
 
-		for (item in recipe.inputs) {
+		for (var item in recipe.inputs) {
 			var nextRecipe = this.getRecipe(item);
 
 			if (nextRecipe == null || this.isRaw(item)) continue;
 
-			var nextMc = nextRecipe.machineClass;
+			var nextMc = this.environment.machineClasses[nextRecipe.category];
 			var nextMachine = new factorio.Machine(nextMc, this.machineLevels[nextMc.className], nextRecipe);
 			//var nextMachine = new factorio.Machine(nextMc, 0, nextRecipe);
-			machinesToGo.push([nextMachine, itemPerSec.multiply(recipe.inputs[item]).divide(recipe.outputCount())])
+			machinesToGo.push([nextMachine, itemPerSec.mul(recipe.inputs[item]).div(recipe.outputCount())])
 		}
 	}
 
-	return topItemPerSec.multiply(multiple);
+	return topItemPerSec.mul(multiple);
 }
 
 factorio.RatioSolver.prototype.addSetRawListener = function(fRaw, fUnraw) {
