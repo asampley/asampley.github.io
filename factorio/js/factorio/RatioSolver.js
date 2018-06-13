@@ -13,6 +13,9 @@ factorio.RatioSolver = function(environment) {
 	this.environment.addItemListener(function(item) {
 		self.setRaw(item, true)
 	});
+	this.environment.addFluidListener(function(fluid) {
+		self.setRaw(fluid, true);
+	});
 	this.environment.addRecipeListener(function(recipe) {
 		self.setRaw(recipe.outputItem(), false);
 	});
@@ -133,15 +136,16 @@ factorio.RatioSolver.prototype.solveRecurse = function(index, item, itemPerSec) 
 			machineCounts.put(machine, machineCount);
 		}*/
 		
-		for (var item in recipe.inputs) {
-			var child = this.solveRecurse(index, item, itemPerSec.mul(recipe.inputs[item]).div(recipe.outputCount()));
+		for (var i = 0; i < recipe.inputs.length; ++i) {
+			var input = recipe.inputs[i];
+			var child = this.solveRecurse(index, input.name, itemPerSec.mul(input.amount).div(recipe.outputCount()));
 			if (child != null) {
 				tree.addChild(child);
 			}
 		}
 	}
 
-	if (this.environment.belts.length != 0) {
+	if (this.environment.belts.length != 0 && this.environment.hasItem(item)) {
 		tree.rootValue().belt = this.environment.belts[this._beltLevel];
 		tree.rootValue().beltCount = this.environment.belts[this._beltLevel].numRequired(itemPerSec);
 	}
@@ -175,14 +179,15 @@ factorio.RatioSolver.prototype.perSecForWhole = function(item) {
 		machines = itemPerSec.mul(multiple).div(machine.outputCountPerSec());
 		multiple *= machines.d;
 
-		for (var item in recipe.inputs) {
-			var nextRecipe = this.getRecipe(item);
+		for (var i = 0; i < recipe.inputs.length; ++i) {
+			var input = recipe.inputs[i];
+			var nextRecipe = this.getRecipe(input.name);
 
-			if (nextRecipe == null || this.isRaw(item)) continue;
+			if (nextRecipe == null || this.isRaw(input.name)) continue;
 
 			var nextMc = this.environment.machineClasses[nextRecipe.category];
 			var nextMachine = new factorio.Machine(nextMc, this.machineLevels[nextMc.className], nextRecipe);
-			machinesToGo.push([nextMachine, itemPerSec.mul(recipe.inputs[item]).div(recipe.outputCount())])
+			machinesToGo.push([nextMachine, itemPerSec.mul(input.amount).div(recipe.outputCount())])
 		}
 	}
 

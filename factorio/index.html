@@ -166,20 +166,26 @@
                     </button>
                     <div id="template-tree-node-ratio" class="hidden">
                         <div class="button tree-node-button">
-                            <span class="tree-node-text   tree-node-machine-int"></span>
-                            <span class="tree-node-text-2 tree-node-machine-frac"></span>
-                            <img class="icon tree-node-machine-icon"></img>
-                            <span>(</span>
-                            <span class="tree-node-text   tree-node-item-pre-icon-int"></span>
-                            <span class="tree-node-text-2 tree-node-item-pre-icon-frac"></span>
-                            <img class="icon tree-node-item-icon"></img>
-                            <span class="tree-node-item-post-icon-text"></span>
-                            <span>)</span>
-                            <span>[</span>
-                            <span class="tree-node-text   tree-node-belt-int"></span>
-                            <span class="tree-node-text-2 tree-node-belt-frac"></span>
-                            <img class="icon tree-node-belt-icon"></img>
-                            <span>]</span>
+			    <div class="tree-node-machine">
+                                <span class="tree-node-text   tree-node-machine-int"></span>
+                                <span class="tree-node-text-2 tree-node-machine-frac"></span>
+                                <img class="icon tree-node-machine-icon"></img>
+			    </div>
+			    <div class="tree-node-item">
+                                <span>(</span>
+                                <span class="tree-node-text   tree-node-item-pre-icon-int"></span>
+                                <span class="tree-node-text-2 tree-node-item-pre-icon-frac"></span>
+                                <img class="icon tree-node-item-icon"></img>
+                                <span class="tree-node-item-post-icon-text"></span>
+                                <span>)</span>
+			    </div>
+			    <div class="tree-node-belt">
+                                <span>[</span>
+                                <span class="tree-node-text   tree-node-belt-int"></span>
+                                <span class="tree-node-text-2 tree-node-belt-frac"></span>
+                                <img class="icon tree-node-belt-icon"></img>
+                                <span>]</span>
+			    </div>
 			    <div class="tree-node-right-div">
 				    <button class="hidden tree-node-icon-button tree-node-raw-toggle">
 					<img class="icon" src="img/main_menu/button-raw_materials.png"/>
@@ -324,10 +330,11 @@
         <script type="text/javascript" src="js/help_popup.js"></script>
         <script type="text/javascript" src="js/content.js"></script>
         <script type="text/javascript" src="js/pages/pages.js"></script>
-        <script type="text/javascript" src="js/main_menu.js"></script>
-        <script type="text/javascript" src="js/ratio_selection.js"></script>
+
+	<script type="text/javascript" src="js/pages/main_menu.js"></script>
+        <script type="text/javascript" src="js/pages/ratio_selection.js"></script>
         <script type="text/javascript" src="js/pages/ratio_display.js"></script>
-        <script type="text/javascript" src="js/raw_materials_selection.js"></script>
+        <script type="text/javascript" src="js/pages/raw_materials_selection.js"></script>
         <script type="text/javascript" src="js/pages/machine_level_selection.js"></script>
         <script type="text/javascript" src="js/pages/mod_selection.js"></script>
         <script type="text/javascript" src="js/overrides.js"></script>
