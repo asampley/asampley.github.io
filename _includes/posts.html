@@ -11,7 +11,10 @@
 			{{ post.title | escape }}
 			</a>
 		</h3>
-		{%- if site.show_excerpts -%}
+		{%- if post.subtitle -%}
+			<h4><i>{{ post.subtitle | escape }}</i></h4>
+		{%- endif -%}
+		{%- if include.show_excerpts -%}
 		  {{ post.excerpt }}
 		{%- endif -%}
 		</li>

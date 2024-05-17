@@ -13,7 +13,7 @@ layout: default
 </div>
 <hr>
 {{ content }}
-<script src="../TemplateData/UnityProgress.js"></script>	
+<script src="../TemplateData/UnityProgress.js"></script>
 <script src="Build/WebGL/UnityLoader.js"></script>
 <script>
 	var gameInstance = UnityLoader.instantiate("gameContainer", "{{ page.json | default: "Build/WebGL/WebGL.json" }}", {onProgress: UnityProgress});
