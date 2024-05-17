@@ -21,14 +21,14 @@
 						Download:
 						{%- for download in project.download -%}
 							{%- if download.url -%}
-								&nbsp;<a href="{{ download.url }}">{{ download.platform }}</a>
-								{%- unless forloop.last -%}&nbsp;|{%- endunless -%}
+								&#x20;<a href="{{ download.url }}">{{ download.platform }}</a>
+								{%- unless forloop.last -%}&#x20;|{%- endunless -%}
 							{%- else -%}
-								&nbsp;{{ download.platform }}
+								&#x20;{{ download.platform }}
 								{%- for version in download.versions -%}
 									&nbsp;<a href="{{ version[1] }}">{{ version[0] }}</a>
 								{%- endfor -%}
-								{%- unless forloop.last -%}&nbsp;|{%- endunless -%}
+								{%- unless forloop.last -%}&#x20;|{%- endunless -%}
 							{%- endif -%}
 						{%- endfor -%}
 						<br>
