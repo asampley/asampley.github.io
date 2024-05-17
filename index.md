@@ -22,7 +22,8 @@ interesting!
 
 This site is designed to respect your browser's font settings, and scale up appropriately. The flow
 is linearly defined to hopefully do well for screen readers. I'm far from an accessibility expert,
-feel free to submit issues you encounter, and I will try to make it better!
+feel free to [submit issues](https://github.com/asampley/asampley.github.io/issues) you encounter,
+and I will try to make it better!
 
 [blog]: /portfolio
 [portfolio]: /blog
