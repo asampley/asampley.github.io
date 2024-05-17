@@ -1,0 +1,35 @@
+/*
+This file is from the Andika project (https://software.sil.org/andika/).
+Copyright (c) 2004-2023 SIL International (http://www.sil.org/) with Reserved
+Font Names "Andika" and "SIL". This Font Software is licensed under the SIL
+Open Font License, Version 1.1 (http://scripts.sil.org/OFL).
+*/
+
+/* use Andika - Regular in .woff format */
+@font-face {
+	font-family: Andika;
+	src: url('/assets/fonts/Andika-Regular.woff2') format('woff2'),
+		url('/assets/fonts/Andika-Regular.woff') format('woff');
+}
+/* use Andika - Italic in .woff2 format */
+@font-face {
+	font-family: Andika;
+	font-style: italic;
+	src: url('/assets/fonts/Andika-Italic.woff2') format('woff2'),
+		url('/assets/fonts/Andika-Italic.woff') format('woff');
+}
+/* use Andika - Bold in .woff2 format */
+@font-face {
+	font-family: Andika;
+	font-weight: bold;
+	src: url('/assets/fonts/Andika-Bold.woff2') format('woff2'),
+		url('/assets/fonts/Andika-Bold.woff') format('woff');
+}
+/* use Andika - Bold Italic in .woff2 format */
+@font-face {
+	font-family: Andika;
+	font-weight: bold;
+	font-style: italic;
+	src: url('/assets/fonts/Andika-BoldItalic.woff2') format('woff2'),
+		url('/assets/fonts/Andika-BoldItalic.woff') format('woff');
+}

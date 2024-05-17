@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<div class="home">
+	{{ content }}
+	{%- if site.posts.size > 0 -%}
+		<hr>
+		{% include posts.html title="Recent Posts" limit=5 %}
+	{%- endif -%}
+	<hr>
+	{% include portfolios.html title="Recent Projects" limit=5 %}
+</div>

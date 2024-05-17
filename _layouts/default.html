@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+	<head>
+		<meta charset="utf-8">
+		{% seo %}
+		<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+		<link rel="stylesheet" href="{{ '/assets/css/monokai.css' | relative_url }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		{% include head-custom.html %}
+	</head>
+	<body>
+		<div class="wrapper">
+			<section>
+				<div id="title">
+					<h1><a href="{{ "/" | relative_url }}">{{ site.title }}</a></h1>
+					<nav>
+						{%- for path in site.header_pages -%}
+							{%- assign page = site.pages | where: "path", path | first -%}
+							{%- if page.title -%}
+								<a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+							{%- endif -%}
+						{%- endfor -%}
+						{%- for social in site.socials -%}
+							{%- if social.href -%}
+								<a href="{{ social.href }}">
+									<svg class="svg-icon" viewBox="0 0 16 16"><use fill="currentColor" xlink:href="{{ social.icon | relative_url }}"></use></svg>
+								</a>
+							{%- endif -%}
+						{%- endfor -%}
+					</nav>
+				</div>
+				<hr>
+			{{ content }}
+
+			</section>
+		</div>
+	</body>
+</html>

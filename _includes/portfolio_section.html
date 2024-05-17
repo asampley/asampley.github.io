@@ -1,0 +1,40 @@
+{%- if include.collection.size > 0 -%}
+	<h3>{{ include.title }}</h3>
+	{{ site.data.project_sections[include.title].description | markdownify }}
+	<ul>
+		{%- for project in include.collection reversed limit:include.limit -%}
+			<li>
+				<h2>
+					{%- if project.play -%}
+						<a href="{{ project.play }}">{{ project.title | escape }}</a>
+					{%- else -%}
+						{{ project.title | escape }}
+					{%- endif -%}
+				</h2>
+				<p>{{ project.content }}</p>
+				<p>
+					{%- if project.source.url -%}
+						<a href="{{ project.source.url }}">{{ project.source.name | default: "Source" }}</a>
+						<br>
+					{%- endif -%}
+					{%- if project.download.size > 0 -%}
+						Download:
+						{%- for download in project.download -%}
+							{%- if download.url -%}
+								&nbsp;<a href="{{ download.url }}">{{ download.platform }}</a>
+								{%- unless forloop.last -%}&nbsp;|{%- endunless -%}
+							{%- else -%}
+								&nbsp;{{ download.platform }}
+								{%- for version in download.versions -%}
+									&nbsp;<a href="{{ version[1] }}">{{ version[0] }}</a>
+								{%- endfor -%}
+								{%- unless forloop.last -%}&nbsp;|{%- endunless -%}
+							{%- endif -%}
+						{%- endfor -%}
+						<br>
+					{%- endif -%}
+				</p>
+			</li>
+		{%- endfor -%}
+	</ul>
+{%- endif -%}

@@ -1,0 +1,15 @@
+{%- if site.projects.size > 0 -%}
+	<h2 id="portfolio">{{ include.title | default: "Portfolio" }}</h2>
+	{%- assign projects = site.projects -%}
+	{%- if include.limit -%}
+		{%- assign projects = projects | reverse | slice: 0, include.limit | reverse -%}
+	{%- endif -%}
+	{% assign sections = projects | map: "section" | uniq %}
+	{%- for section in sections -%}
+		{% assign collection = projects | where: "section", section %}
+		{% include portfolio_section.html title=section collection=collection %}
+	{%- endfor -%}
+	{%- if site.projects.size > include.limit -%}
+		<a href="{{ "/portfolio" | relative_url }}">...view all projects</a>
+	{%- endif -%}
+{%- endif -%}

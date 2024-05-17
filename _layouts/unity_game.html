@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="../TemplateData/style.css">
+<div class="webgl-content">
+	<div id="gameContainer" style="width: 960px; height: 600px"></div>
+	<div class="footer">
+		<div class="webgl-logo"></div>
+		<div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+		<div class="title">{{ page.title }}</div>
+	</div>
+</div>
+<hr>
+{{ content }}
+<script src="../TemplateData/UnityProgress.js"></script>	
+<script src="Build/WebGL/UnityLoader.js"></script>
+<script>
+	var gameInstance = UnityLoader.instantiate("gameContainer", "{{ page.json | default: "Build/WebGL/WebGL.json" }}", {onProgress: UnityProgress});
+</script>

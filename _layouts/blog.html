@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{{ content }}
+<hr>
+{% if site.posts.size > 0 -%}
+	{% include posts.html %}
+{%- else -%}
+	Oh, hold up, I haven't posted anything yet. Stay tuned, it's in the works!
+{%- endif -%}

@@ -1,0 +1,196 @@
+---
+---
+
+@import "normalize";
+@import "fonts";
+
+:root {
+	--color: #eeddf0;
+	--link-color: #55eecc;
+	--link-hover-color: #bbffee;
+}
+
+body {
+	padding:0px 0 20px 0px;
+	margin: 0px;
+	font: 100% "Andika", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: var(--color);
+	font-weight: normal;
+	background-color: #301525;
+	background-image: linear-gradient(#301525, #111111);
+	background-attachment: fixed;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color:#e8e8e8;
+	margin:0 0 10px;
+	font-weight: normal;
+}
+
+p, ul, ol, table, pre, dl {
+	margin:0 0 20px;
+}
+
+h1, h2, h3 {
+	line-height:1.1;
+
+}
+
+h1 {
+	font-size: 200%;
+}
+
+h2 {
+	font-size: 166%;
+}
+
+h4, h5, h6 {
+	color:#e8e8e8;
+}
+
+h3 {
+	font-size: 133%;
+	color: #b6b6b6;
+}
+
+a {
+	color: var(--link-color);
+	font-weight: 400;
+	text-decoration: none;
+
+	&:hover {
+		color: var(--link-hover-color);
+	}
+}
+
+ul {
+	list-style-image:url('../images/bullet.svg');
+}
+
+strong {
+	font-weight: bold;
+}
+
+.wrapper {
+	max-width:1000px;
+	margin:0 auto;
+	position:relative;
+	padding: 0 20px;
+}
+
+section img {
+	max-width: 100%;
+}
+
+blockquote {
+	border-left:3px solid #ffcc00;
+	margin:0;
+	padding:0 0 0 20px;
+	font-style:italic;
+}
+
+code {
+	font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+	color:#efefef;
+	font-size:100%;
+	margin: 0 4px;
+	padding: 4px 6px;
+	border-radius: 2px;
+}
+
+pre {
+	padding:8px 15px;
+	background: #070707;
+	border-radius: 8px;
+	border:1px solid #cc00cc;
+	box-shadow: inset 0 0 10px #880088;
+	overflow: auto;
+	overflow-y: hidden;
+
+	code {
+		color: #efefef;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+table {
+	width:100%;
+	border-collapse:collapse;
+}
+
+th {
+	text-align:left;
+	padding:5px 10px;
+	border-bottom:1px solid #434343;
+	color: #b6b6b6;
+	font-weight: bold;
+}
+
+td {
+	text-align:left;
+	padding:5px 10px;
+	border-bottom:1px solid #434343;
+}
+
+hr {
+	margin: 0 0 20px;
+}
+
+dt {
+	color:#F0E7D5;
+	font-weight: normal;
+}
+
+section {
+	padding: 30px 0px 50px 0px;
+	margin: 20px 0;
+
+	#title {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em 3em;
+		flex-wrap: wrap;
+		border: 0;
+		outline: none;
+		padding: 0 0 5px 0;
+
+		h1 {
+			flex-grow: 1e6;
+			font-weight: 300;
+			font-size: 300%;
+
+			a {
+				color: var(--color);
+
+				&:hover {
+					color: var(--link-hover-color)
+				}
+			}
+		}
+
+		nav {
+			font-size: 120%;
+			display: flex;
+			flex-wrap: wrap;
+			flex-grow: 1;
+			justify-content: space-evenly;
+			align-content: center;
+			gap: 1em 2em;
+		}
+	}
+}
+
+.svg-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.social-media-list {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	gap: 0.5em 1em;
+
+	font-weight: normal;
+}
