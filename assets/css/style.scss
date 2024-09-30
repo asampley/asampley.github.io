@@ -33,10 +33,10 @@ p, ul, ol, table, pre, dl {
 
 h1, h2, h3 {
 	line-height:1.1;
-
 }
 
 h1 {
+	font-weight: 700;
 	font-size: 200%;
 }
 
@@ -50,12 +50,11 @@ h4, h5, h6 {
 
 h3 {
 	font-size: 133%;
-	color: #b6b6b6;
+	color: #b6cfcf;
 }
 
 a {
 	color: var(--link-color);
-	font-weight: 400;
 	text-decoration: none;
 
 	&:hover {
@@ -64,7 +63,7 @@ a {
 }
 
 ul {
-	list-style-image:url('../images/bullet.svg');
+	/*list-style-image:url('../images/bullet.svg');*/
 }
 
 strong {
@@ -91,19 +90,13 @@ blockquote {
 
 code {
 	font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
-	color:#efefef;
+	color:#9fefef;
 	font-size:100%;
-	margin: 0 4px;
-	padding: 4px 6px;
-	border-radius: 2px;
+	padding: 0.25em 0;
 }
 
 pre {
 	padding:8px 15px;
-	background: #070707;
-	border-radius: 8px;
-	border:1px solid #cc00cc;
-	box-shadow: inset 0 0 10px #880088;
 	overflow: auto;
 	overflow-y: hidden;
 
@@ -112,6 +105,13 @@ pre {
 		margin: 0;
 		padding: 0;
 	}
+}
+
+pre.highlight {
+	background: #070707;
+	border-radius: 8px;
+	border:1px solid #cc00cc;
+	box-shadow: inset 0 0 10px #880088;
 }
 
 table {
@@ -157,7 +157,7 @@ section {
 
 		h1 {
 			flex-grow: 1e6;
-			font-weight: 300;
+			font-weight: bold;
 			font-size: 300%;
 
 			a {
@@ -181,8 +181,14 @@ section {
 	}
 }
 
+video {
+	display: block;
+	max-width: 100%;
+	margin: auto;
+	margin-bottom: 1em;
+}
+
 .svg-icon {
 	width: 1em;
 	height: 1em;
 }
-
