@@ -61,6 +61,9 @@ may vary).
 I will reiterate, make sure to store your recovery key somewhere safe, even multiple somewheres if
 you're feeling adventurous!
 
+Did you know you can use it on Windows? I certainly didn't before I was doing some research, so
+don't be fooled thinking it's locked into Apple only systems.
+
 ## Oh, that's it
 
 Yeah, if you're an individual wanting to do some E2EE on your cloud, your options are pretty
