@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Encrypting and the Cloud
-subtitle: For files you want backed up, but quite secure from prying eyes.
+subtitle: For files you want backed up, but secure from prying eyes.
 ---
 
 The cloud is a very convenient location to put your stuff. Whether it's photos, videos, documents,
