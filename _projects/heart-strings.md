@@ -2,19 +2,19 @@
 title: Heart Strings
 section: Game Jams
 date: 2019-02-24
-play: /HeartStrings
+play: /media/HeartStrings
 source:
     name: Github
     url: https://github.com/RobotsForGrandmothers/HeartStrings
 download:
     - platform: Linux
       versions:
-        x86: /HeartStrings/Build/Linux_x86/HeartStrings.tar.gz
-        x86_64: /HeartStrings/Build/Linux_x86_64/HeartStrings.tar.gz
+        x86: /media/HeartStrings/Build/Linux_x86/HeartStrings.tar.gz
+        x86_64: /media/HeartStrings/Build/Linux_x86_64/HeartStrings.tar.gz
     - platform: Windows
       versions:
-        x86: /HeartStrings/Build/Windows_x86/HeartStrings.zip
-        x86_64: /HeartStrings/Build/Windows_x86_64/HeartStrings.zip
+        x86: /media/HeartStrings/Build/Windows_x86/HeartStrings.zip
+        x86_64: /media/HeartStrings/Build/Windows_x86_64/HeartStrings.zip
 ---
 
 How's your rhythm, when you have to play three different instruments? Fight off three different

@@ -7,13 +7,13 @@ source:
     url: https://github.com/asampley/Palette
 download:
     - platform: Linux
-      url: /ShineAndSean/Build/Linux/ShineAndSean.tar.gz
+      url: /media/ShineAndSean/Build/Linux/ShineAndSean.tar.gz
     - platform: Windows
       versions:
-        x86: /ShineAndSean/Build/Windows_x86/ShineAndSean.zip
-        x86_64: /ShineAndSean/Build/Windows_x86_64/ShineAndSean.zip
+        x86: /media/ShineAndSean/Build/Windows_x86/ShineAndSean.zip
+        x86_64: /media/ShineAndSean/Build/Windows_x86_64/ShineAndSean.zip
     - platform: MacOSX
-      url: /ShineAndSean/Build/MacOSX/ShineAndSean.zip
+      url: /media/ShineAndSean/Build/MacOSX/ShineAndSean.zip
 ---
 
 A puzzle concept that I want to develop further in the future, for sure.
